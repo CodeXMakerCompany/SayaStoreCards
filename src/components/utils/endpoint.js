@@ -13,7 +13,6 @@ const CodexmakerApi = async (method, path, body = null, options = null) => {
           return e.response.data;
         });
       return data;
-
     default:
       break;
   }
