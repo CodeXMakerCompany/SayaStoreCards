@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -14,8 +14,11 @@ import { themes } from "../../styles/theme";
 import { CgSun } from "react-icons/cg";
 import { HiMoon } from "react-icons/hi";
 import { useDispatch } from "react-redux";
+
+//Actions
 import { toggleModal } from "../../actions/modal.actions";
 import { openSnackBar } from "../../actions/snackbar.actions";
+import { getAuth } from "../../actions/tcgPlayer.actions";
 
 //Styles
 import { navBarStyles } from "../react-material-styles/styles";
@@ -45,6 +48,10 @@ HideOnScroll.propTypes = {
 export const NavbarGlobal = (props) => {
   const dispatch = useDispatch();
   const classes = navBarStyles();
+
+  useEffect(() => {
+    dispatch(getAuth());
+  }, [dispatch])
 
   const [themeSelection, setThemeSelection] = useState("light");
   const changeTheme = () => {
