@@ -1,13 +1,11 @@
-import { Grid } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import React from "react";
-import { Carousel } from "./components/carousel";
+import { CarouselComponent } from "./components/carousel";
 
 export const CategoriesGlobal = () => {
   return (
-    <Grid container justifyContent="center" alignItems="center">
- 
-        <Carousel/>
-
-    </Grid>
+    <Box pt={3} pb={3} ml={10}>
+          <CarouselComponent/>
+    </Box>
   );
 };

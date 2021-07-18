@@ -1,9 +1,48 @@
-import React from 'react';
-export const Carousel = () =>{
+import React from 'react'
+import Carousel from 'react-multi-carousel';
+import { CarouselItem } from "./carousel.item";
+import 'react-multi-carousel/lib/styles.css';
+
+import data from "../categories.data";
+
+const responsive = {
+  superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 4
+  },
+  desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4
+  },
+  tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 4
+  },
+  mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+  }
+};
+export const CarouselComponent = () =>{
 
   return (
-    <div>
-     categories
-    </div>
+    <Carousel
+    swipeable={true}
+    draggable={true}
+    responsive={responsive}
+    ssr={true} // means to render carousel on server-side.
+    infinite={true}
+    arrows={false}
+    customTransition="all .5"
+    transitionDuration={500}
+    containerClass="carousel-container"
+    > 
+     
+      {data.map((item, index) => (
+        <CarouselItem key={item.title} props={item} />
+       
+      ))}
+    </Carousel>
   );
 }
