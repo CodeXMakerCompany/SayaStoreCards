@@ -25,9 +25,11 @@ import { navBarStyles } from "../react-material-styles/styles";
 
 //Main components
 import { TemporaryDrawer } from "./leftNavBar.global";
+import { CategoriesGlobal } from "../global/categories/categories.global";
 
 //Modules components
 import { HomeIndex } from "../modules/home/home.index";
+import { Banner } from "./banner/banner.global";
 
 const HideOnScroll = (props) => {
   const { children, window } = props;
@@ -110,6 +112,7 @@ export const NavbarGlobal = (props) => {
             >
               {icon}
             </div>
+
           </Toolbar>
         </AppBar>
       </HideOnScroll>
@@ -123,6 +126,8 @@ export const NavbarGlobal = (props) => {
             color: themes[themeSelection].titleColor,
           }}
         >
+          <CategoriesGlobal />
+          <Banner />
           <Box>
             {props.view === "/"
               ? <HomeIndex className="m-0" />
